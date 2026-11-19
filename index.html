@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#351421">
+  <title>10 años contigo ❤️</title>
+
+  <style>
+    :root{
+      --bg:#351421;
+      --wine:#64283e;
+      --pink:#e9a4b5;
+      --gold:#e9c58a;
+      --cream:#fff7ed;
+      --muted:#e3cbd0;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 15% 10%,#74364d 0,transparent 34%),
+        radial-gradient(circle at 90% 80%,#6b3545 0,transparent 30%),
+        var(--bg);
+      color:var(--cream);
+      font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;
+      overflow-x:hidden;
+    }
+
+    button{font:inherit;cursor:pointer}
+    .wrap{width:min(920px,92%);margin:auto}
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:22px 0;
+      color:var(--muted);
+      font-size:.78rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .pill{
+      border:1px solid #ffffff35;
+      border-radius:99px;
+      padding:8px 12px;
+      background:#ffffff0d;
+    }
+
+    .hero{
+      min-height:84vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      position:relative;
+      padding:35px 0 65px;
+    }
+
+    .hero-inner{
+      max-width:720px;
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      color:var(--gold);
+      letter-spacing:.2em;
+      font-size:.78rem;
+      font-weight:800;
+    }
+
+    h1{
+      font-size:clamp(3.3rem,11vw,7.2rem);
+      line-height:.92;
+      margin:18px 0 14px;
+      letter-spacing:-.07em;
+    }
+
+    .gradient{
+      background:linear-gradient(
+        100deg,#fff,#e9a4b5 48%,#e9c58a
+      );
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:clamp(1rem,3vw,1.25rem);
+      line-height:1.65;
+      max-width:520px;
+      margin:18px auto 28px;
+    }
+
+    .btn{
+      border:0;
+      border-radius:16px;
+      padding:14px 22px;
+      font-weight:900;
+      color:#351421;
+      background:linear-gradient(110deg,#e9a4b5,#e9c58a);
+      box-shadow:0 10px 30px #e9a4b533;
+      transition:.2s transform,.2s box-shadow;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px) scale(1.02);
+      box-shadow:0 14px 35px #e9a4b555;
+    }
+
+    .btn.secondary{
+      background:#ffffff12;
+      color:var(--cream);
+      border:1px solid #ffffff35;
+      box-shadow:none;
+    }
+
+    .sticker{
+      font-size:clamp(3rem,9vw,5.5rem);
+      display:inline-block;
+      animation:bob 2.8s ease-in-out infinite;
+    }
+
+    @keyframes bob{
+      50%{transform:translateY(-13px) rotate(5deg)}
+    }
+
+    .float{
+      position:absolute;
+      pointer-events:none;
+      opacity:.75;
+      animation:drift 7s ease-in-out infinite;
+    }
+
+    .f1{top:12%;left:8%;font-size:2rem}
+    .f2{top:22%;right:9%;font-size:2.4rem;animation-delay:-2s}
+    .f3{bottom:13%;left:15%;font-size:1.7rem;animation-delay:-4s}
+    .f4{bottom:18%;right:13%;font-size:2rem;animation-delay:-1s}
+
+    @keyframes drift{
+      50%{transform:translate(12px,-22px) rotate(16deg)}
+    }
+
+    section{padding:68px 0}
+
+    .section-title{
+      text-align:center;
+      font-size:clamp(2rem,6vw,3.5rem);
+      letter-spacing:-.05em;
+      margin:0 0 12px;
+    }
+
+    .section-copy{
+      text-align:center;
+      color:var(--muted);
+      margin:0 auto 30px;
+      max-width:550px;
+      line-height:1.6;
+    }
+
+    .panel{
+      background:#ffffff0c;
+      border:1px solid #ffffff20;
+      border-radius:26px;
+      padding:clamp(20px,5vw,34px);
+      box-shadow:0 20px 70px #08051255;
+      backdrop-filter:blur(12px);
+    }
+
+    .mission{text-align:center}
+
+    .mission-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .secret{
+      min-height:145px;
+      border:1px solid #ffffff20;
+      border-radius:20px;
+      background:#ffffff0b;
+      color:var(--cream);
+      padding:18px 12px;
+      transition:.2s;
+    }
+
+    .secret:hover{
+      transform:translateY(-5px);
+      background:#ffffff16;
+    }
+
+    .secret .emoji{
+      font-size:2.2rem;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .secret small{color:var(--muted)}
+
+    .message{
+      display:none;
+      margin-top:16px;
+      padding:17px;
+      border-radius:16px;
+      background:#e9a4b51a;
+      border:1px solid #e9a4b555;
+      color:#ffe7e9;
+      line-height:1.7;
+    }
+
+    .message.show{
+      display:block;
+      animation:pop .35s ease;
+    }
+
+    @keyframes pop{
+      from{opacity:0;transform:scale(.96)}
+      to{opacity:1;transform:scale(1)}
+    }
+
+    .letter{
+      max-width:680px;
+      margin:auto;
+      line-height:1.9;
+      color:#f5eaf0;
+      font-size:1.05rem;
+    }
+
+    .letter p{margin:0 0 16px}
+
+    .signature{
+      color:var(--gold);
+      font-weight:900;
+      font-size:1.25rem;
+    }
+
+    /* FOTOGRAFÍA FINAL */
+
+    .photo-box{text-align:center}
+
+    .photo-frame{
+      width:100%;
+      max-width:760px;
+      margin:24px auto 18px;
+      padding:10px;
+      background:linear-gradient(135deg,#e9c58a,#e9a4b5,#fff0d8);
+      border-radius:24px;
+      box-shadow:0 20px 55px #08051266;
+      overflow:hidden;
+    }
+
+    .photo-frame img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:75vh;
+      object-fit:contain;
+      border-radius:16px;
+    }
+
+    .photo-message{
+      color:var(--gold);
+      font-size:1.15rem;
+      font-weight:800;
+      margin-top:20px;
+    }
+
+    .tiny{
+      font-size:.85rem;
+      color:#e3cbd0;
+      line-height:1.6;
+    }
+
+    footer{
+      text-align:center;
+      padding:35px 0 55px;
+      color:#e3cbd0;
+      font-size:.85rem;
+    }
+
+    .confetti{
+      position:fixed;
+      top:-20px;
+      z-index:5;
+      pointer-events:none;
+      animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+      to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+      }
+    }
+
+    .hidden{display:none!important}
+
+    @media(max-width:620px){
+      .mission-grid{grid-template-columns:1fr}
+      .secret{min-height:110px}
+      .top{font-size:.65rem}
+      .hero{min-height:78vh}
+      .f1{left:3%}
+      .f2{right:3%}
+      .photo-frame{padding:7px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <header class="top">
+      <span>♡ Una historia de amor</span>
+      <span class="pill">10 años juntos</span>
+    </header>
+
+    <main>
+
+      <!-- INICIO -->
+
+      <section class="hero" id="inicio">
+
+        <span class="float f1">❤️</span>
+        <span class="float f2">✨</span>
+        <span class="float f3">💍</span>
+        <span class="float f4">🌹</span>
+
+        <div class="hero-inner">
+
+          <div class="sticker">💍</div>
+
+          <div class="eyebrow">
+            DIEZ AÑOS DE AMOR · COMPLICIDAD Y VIDA JUNTOS
+          </div>
+
+          <h1>
+            <span class="gradient">MI MONITO</span>
+          </h1>
+
+          <p class="subtitle">
+            Diez años de elegirnos, de crecer, de aprender
+            y de construir una historia que volvería a elegir
+            una y mil veces. Hoy tengo algo especial para ti.
+          </p>
+
+          <button class="btn" onclick="startSurprise()">
+            DESCUBRE NUESTRA HISTORIA ❤️
+          </button>
+
+        </div>
+      </section>
+
+
+      <!-- SECRETOS -->
+
+      <section id="mision" class="hidden">
+
+        <h2 class="section-title">
+          Tres secretos de nuestro amor ❤️
+        </h2>
+
+        <p class="section-copy">
+          Diez años guardan muchas historias, aprendizajes
+          y recuerdos. Toca cada corazón para descubrir
+          tres cosas que hacen especial nuestro matrimonio.
+        </p>
+
+        <div class="panel mission">
+
+          <div class="mission-grid">
+
+            <button class="secret" onclick="reveal(0)">
+              <span class="emoji">💗</span>
+              <b>Secreto #1</b><br>
+              <small>Toca para descubrir</small>
+            </button>
+
+            <button class="secret" onclick="reveal(1)">
+              <span class="emoji">🌹</span>
+              <b>Secreto #2</b><br>
+              <small>Toca para descubrir</small>
+            </button>
+
+            <button class="secret" onclick="reveal(2)">
+              <span class="emoji">💍</span>
+              <b>Secreto #3</b><br>
+              <small>Toca para descubrir</small>
+            </button>
+
+          </div>
+
+          <div id="message" class="message" aria-live="polite"></div>
+
+          <p id="progress" class="tiny">
+            0 de 3 secretos descubiertos
+          </p>
+
+          <button
+            id="letterBtn"
+            class="btn hidden"
+            onclick="showLetter()"
+          >
+            DESBLOQUEAR MI CARTA 💌
+          </button>
+
+        </div>
+      </section>
+
+
+      <!-- CARTA -->
+
+      <section id="carta" class="hidden">
+
+        <h2 class="section-title">
+          Una carta para ti 💌
+        </h2>
+
+        <p class="section-copy">
+          Diez años no se cuentan solamente con el tiempo,
+          sino con todo aquello que hemos vivido y construido juntos.
+        </p>
+
+        <article class="panel letter">
+
+          <p>A mi compañero de vida, mi amor…Jerónimo</p>
+
+          <p>Mi monito hermoso.</p>
+
+          <p>
+            Hoy celebramos 10 años de matrimonio, 10 años de compartir una vida llena de momentos maravillosos, sueños cumplidos que nos han regalado tanta felicidad y también sueños que no hemos podido alcanzar, que nos han dejado tristeza, pero que nos han enseñado a ser fuertes, a abrazarnos y a seguir adelante juntos.
+          </p>
+
+          <p>
+            Si algo tengo claro después de esta década es que no todo ha sido perfecto, pero sí ha valido la pena. Hemos aprendido que el amor no solamente se demuestra en los días felices, sino también en esos momentos en los que la vida nos pone pruebas y, aun así, decidimos tomarnos de la mano y continuar.
+          </p>
+
+          <p>
+            Gracias por ser mi compañero de vida, por cuidarme, guiarme, impulsarme y por esa perseverancia que tanto admiro de ti. Gracias por no rendirte, por creer en nosotros y por enseñarme que siempre hay motivos para seguir construyendo un futuro mejor y una vida feliz.
+          </p>
+
+          <p>
+            Hoy también quiero decirte que nuestra familia no se define por la cantidad de integrantes ni por cumplir con lo que los demás esperan de nosotros. Nuestra familia somos tú y yo, nuestra historia, nuestro amor, nuestros sueños, nuestras luchas y la vida que hemos construido. Porque una familia también se forma con amor, respeto, compromiso y complicidad.
+          </p>
+
+          <p>
+            Deseo que sigamos siendo un ejemplo de matrimonio para quienes nos rodean, no porque seamos perfectos, sino porque hemos demostrado que el amor verdadero también implica paciencia, comprensión, esfuerzo y, sobre todo, elegirse una y otra vez.
+          </p>
+
+          <p>
+            Quiero seguir cumpliendo sueños contigo, pero también aprender a vivir en paz con aquellos que quizá no llegaron. Quiero seguir riendo, viajando, celebrando, superando obstáculos y disfrutando de esta aventura que elegimos hace 10 años.
+          </p>
+
+          <p>
+            Gracias por ser mi hogar, mi compañero y mi persona favorita. Si volviera a comenzar, con todo lo que sé, con nuestras alegrías y también con nuestras tristezas, volvería a elegir caminar la vida contigo.
+          </p>
+
+          <p>
+            ¡Felices 10 años de matrimonio, amor! Que Dios nos permita seguir sumando años, historias y motivos para agradecer.
+          </p>
+
+          <p>
+            Te amo y te volvería a elegir.
+          </p>
+
+          <p class="signature">
+            Mi chango marango. ❤️
+          </p>
+
+        </article>
+
+        <div style="text-align:center;margin-top:24px">
+
+          <button class="btn" onclick="showPhoto()">
+            Y TODAVÍA HAY ALGO MÁS... 📸
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- FOTOGRAFÍA FINAL -->
+
+      <section id="foto" class="hidden">
+
+        <div class="photo-box panel">
+
+          <div class="sticker">❤️</div>
+
+          <h2 class="section-title">
+            Nuestra historia, nuestro amor.
+          </h2>
+
+          <p class="section-copy">
+            Diez años después, aquí seguimos.
+            Y si algo volvería a hacer, sería elegirte a ti.
+          </p>
+
+          <div class="photo-frame">
+
+            <img
+              src="aniversario.JPG"
+              alt="Fotografía de nuestro décimo aniversario de matrimonio"
+            >
+
+          </div>
+
+          <p class="photo-message">
+            ¡Felices 10 años de matrimonio, mi monito! 💍
+          </p>
+
+          <p class="tiny">
+            Por todos los años que todavía nos esperan,
+            por los sueños que construiremos y por seguir
+            eligiéndonos cada día.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      Diez años, una historia y una elección que repetiría siempre. ❤️
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    const secrets = [
+
+      "Aprender hablar, escuchar, controlar las emociones y entender que no siempre tenemos la razón, pero siempre podemos llegar a un acuerdo ha sido parte del crecimiento de nuestro matrimonio y estoy muy orgullosa de este crecimiento juntos.",
+
+      "No dejar de conquistarnos ha sido parte de esta relación tan bonita, aunque pasen los años, seguir teniendo detalles, sorprenderse, buscar momentos juntos, no dar por sentado el amor es parte de nuestros detalles juntos, mis serenatas por 10 años son inexplicables ser siempre la protagonista en todo me hace sentir qué soy la mujer más amada del mundo.",
+
+      "Entender qué el matrimonio no es perfecto, que habrá días buenos y difíciles, no perder la complicidad, seguir riendo juntos, bromear, respetar espacios, no competir, hacer equipo, aprender a perdonar y apoyarnos en proyectos personales nos ha ayudado a crear un matrimonio hermoso en tí siempre encuentro al mejor hombre del mundo."
+
+    ];
+
+    const found = new Set();
+
+
+    function startSurprise(){
+
+      document.getElementById('mision').classList.remove('hidden');
+
+      document.getElementById('mision').scrollIntoView({
+        behavior:'smooth'
+      });
+
+      confetti();
+
+    }
+
+
+    function reveal(i){
+
+      found.add(i);
+
+      const box = document.getElementById('message');
+
+      box.textContent = secrets[i];
+
+      box.classList.remove('show');
+
+      void box.offsetWidth;
+
+      box.classList.add('show');
+
+      document.getElementById('progress').textContent =
+        `${found.size} de 3 secretos descubiertos`;
+
+      if(found.size === 3){
+
+        document.getElementById('letterBtn').classList.remove('hidden');
+
+      }
+
+    }
+
+
+    function showLetter(){
+
+      document.getElementById('carta').classList.remove('hidden');
+
+      document.getElementById('carta').scrollIntoView({
+        behavior:'smooth'
+      });
+
+      confetti();
+
+    }
+
+
+    function showPhoto(){
+
+      document.getElementById('foto').classList.remove('hidden');
+
+      document.getElementById('foto').scrollIntoView({
+        behavior:'smooth'
+      });
+
+      confetti();
+
+    }
+
+
+    function confetti(){
+
+      const pieces = [
+        '❤️','💗','✨','💍','🌹','💕','💖','🥂'
+      ];
+
+      for(let i=0;i<24;i++){
+
+        const el = document.createElement('span');
+
+        el.className = 'confetti';
+
+        el.textContent =
+          pieces[Math.floor(Math.random()*pieces.length)];
+
+        el.style.left = Math.random()*100+'vw';
+
+        el.style.animationDuration =
+          (2.5+Math.random()*2.5)+'s';
+
+        el.style.fontSize =
+          (14+Math.random()*18)+'px';
+
+        document.body.appendChild(el);
+
+        setTimeout(()=>el.remove(),5200);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
